@@ -247,7 +247,7 @@ export default function LandingPage() {
               { label: 'Context Window', value: '200k',     sub: 'tokens — Claude Sonnet',    color: '#43e1ba' },
               { label: 'Countries',      value: 'India · UK · USA', sub: 'live job listings', color: '#ffb95a' },
               { label: 'Resume Output',  value: '1-click',  sub: 'enhanced PDF download',     color: '#ffb3ae' },
-            ].map((m, i) => (
+           ].map((m) => (
               <div key={m.label} style={{ textAlign: 'center', flex: 1 }}>
                 <div className="font-mono" style={{ fontSize: 10, color: m.color, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6 }}>{m.label}</div>
                 <div style={{ fontSize: 22, fontWeight: 800, color: '#e1e2eb', marginBottom: 2 }}>{m.value}</div>
