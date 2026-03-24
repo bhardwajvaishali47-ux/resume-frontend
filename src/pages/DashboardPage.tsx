@@ -17,7 +17,7 @@ interface Job { title: string; company: string; location: string; url: string; s
 type ActiveTab = 'cover' | 'resume' | 'jobs' | 'report'
 
 // ─── API helpers ──────────────────────────────────────────────────────────────
-const API_BASE = 'http://localhost:8000'
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 async function apiAnalyze(file: File, jd: string, token: string) {
   const fd = new FormData()
