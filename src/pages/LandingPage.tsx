@@ -88,15 +88,22 @@ export default function LandingPage() {
             AI Resume Coach
           </div>
           <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            {['Features', 'How It Works', 'About'].map(link => (
-              <a key={link}
-                onClick={() => document.getElementById(link.toLowerCase().replace(/ /g, '-'))?.scrollIntoView({ behavior: 'smooth' })}
-                style={{ color: '#E4BDBA', fontWeight: 500, padding: '6px 12px', borderRadius: 4, cursor: 'pointer', transition: 'background 0.2s', fontSize: 14 }}
-                onMouseEnter={e => (e.currentTarget.style.background = '#272A31')}
-                onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
-                {link}
-              </a>
-            ))}
+            {[
+              { label: 'Features',     id: 'features'      },
+              { label: 'How It Works', id: 'how-it-works'  },
+              { label: 'About',        action: 'login'      },
+            ].map(link => (
+            <a key={link.label}
+             onClick={() => {
+              if (link.action === 'login') navigate('/login')
+              else document.getElementById(link.id!)?.scrollIntoView({ behavior: 'smooth' })
+            }}
+            style={{ color: '#E4BDBA', fontWeight: 500, padding: '6px 12px', borderRadius: 4, cursor: 'pointer', transition: 'background 0.2s', fontSize: 14 }}
+            onMouseEnter={e => (e.currentTarget.style.background = '#272A31')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
+            {link.label}
+            </a>
+))}
           </div>
           <button
             onClick={() => navigate('/login')}
