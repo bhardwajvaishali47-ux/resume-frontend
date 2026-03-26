@@ -13,7 +13,7 @@ interface AnalysisResult {
   job_title?: string
 }
 interface ChatMessage { role: 'user' | 'assistant'; content: string }
-interface Job { title: string; company: string; location: string; url: string; salary?: string; description?: string }
+interface Job { title: string; company: string; location: string; url?: string; apply_url?: string; salary?: string; description?: string }
 type ActiveTab = 'cover' | 'resume' | 'jobs' | 'report'
 
 // ─── API helpers ──────────────────────────────────────────────────────────────
@@ -766,7 +766,7 @@ export default function DashboardPage() {
                           {jobsDone && jobs.length === 0 && <div style={{ textAlign:'center', padding:'24px 0', color:'#ab8886', fontSize:12 }}>No jobs found. Try a different region.</div>}
                           <div className="no-scroll" style={{ display:'flex', flexDirection:'column', gap:8, maxHeight:260, overflowY:'auto' }}>
                             {jobs.map((job, i) => (
-                              <a key={i} href={job.url} target="_blank" rel="noopener noreferrer"
+                              <a key={i} href={job.apply_url} target="_blank" rel="noopener noreferrer"
                                 style={{ display:'block', background:'#1d2026', padding:'12px 14px', borderRadius:8, border:'1px solid rgba(91,64,62,.1)', textDecoration:'none', transition:'border-color .2s' }}
                                 onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(255,75,75,.3)')}
                                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(91,64,62,.1)')}>
